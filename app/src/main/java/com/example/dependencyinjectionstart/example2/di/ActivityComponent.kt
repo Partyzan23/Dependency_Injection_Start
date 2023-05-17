@@ -3,6 +3,7 @@ package com.example.dependencyinjectionstart.example2.di
 import com.example.dependencyinjectionstart.example2.presentation.MainActivity
 import dagger.BindsInstance
 import dagger.Subcomponent
+import javax.inject.Named
 
 
 @Subcomponent(modules = [ViewModelModule::class])
@@ -14,7 +15,8 @@ interface ActivityComponent {
     interface Factory{
 
         fun create(
-            @BindsInstance id: String
+            @BindsInstance @Named("id") id: String,
+            @BindsInstance @Named("name") name:String
         ): ActivityComponent
     }
 }
